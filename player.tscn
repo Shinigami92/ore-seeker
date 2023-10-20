@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceys4vrcavapp"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_x82fp"]
+[ext_resource type="Texture2D" uid="uid://cu3vmrujgoav1" path="res://icon.svg" id="2_bga4u"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_n5mw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jut0o"]
+size = Vector2(64, 64)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_x82fp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_n5mw3")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bga4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jut0o")
