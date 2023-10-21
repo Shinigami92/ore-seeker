@@ -23,7 +23,7 @@ jobs:
           cache: "pip"
 
       - name: Install gdtoolkit
-        run: pip install "gdtoolkit==4.*"
+        run: pip install gdtoolkit==4.*
 
       - name: Lint
         run: gdlint .
