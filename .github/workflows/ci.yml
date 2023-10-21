@@ -22,6 +22,9 @@ jobs:
           python-version: "3.12"
           cache: "pip"
 
+      - name: Install gdtoolkit
+        run: pip install gdtoolkit==4.*
+
       - name: Lint
         run: gdlint .
 
