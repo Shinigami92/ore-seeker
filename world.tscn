@@ -18,6 +18,8 @@ navigation_polygon = SubResource("NavigationPolygon_5xfb5")
 unique_name_in_owner = true
 position = Vector2(960, 540)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="Enemy1" parent="." instance=ExtResource("3_60omp")]
 position = Vector2(639, 545)
 
