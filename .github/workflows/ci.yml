@@ -31,5 +31,26 @@ jobs:
       - name: Lint
         run: gdlint .
 
+  formatting:
+    runs-on: ubuntu-latest
+    name: "Formatting"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+
+      - name: Setup python
+        uses: actions/setup-python@v4.7.1
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Upgrade setuptools
+        run: pip install --upgrade setuptools
+
+      - name: Install gdtoolkit
+        run: pip install gdtoolkit==4.*
+
       - name: Check formatting
         run: gdformat --check .
