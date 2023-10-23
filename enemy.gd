@@ -22,7 +22,7 @@ func actor_setup():
 
 
 func _physics_process(_delta):
-	if !start_navigating:
+	if not start_navigating:
 		return
 
 	var current_agent_position: Vector2 = global_position
@@ -35,3 +35,7 @@ func _physics_process(_delta):
 
 	velocity = new_velocity
 	move_and_slide()
+
+
+func take_damage():
+	queue_free()
