@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://co87fcy7nhm03"]
+
+[ext_resource type="Script" path="res://miner.gd" id="1_kvdlu"]
+[ext_resource type="Texture2D" uid="uid://njtf4kfmkots" path="res://assets/All_Fire_Bullet_Pixel_16x16_03.png" id="1_ri74v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oyvy"]
+atlas = ExtResource("1_ri74v")
+region = Rect2(96, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thacm"]
+atlas = ExtResource("1_ri74v")
+region = Rect2(112, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylwx2"]
+atlas = ExtResource("1_ri74v")
+region = Rect2(128, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glhx6"]
+atlas = ExtResource("1_ri74v")
+region = Rect2(144, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kvba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oyvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thacm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylwx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glhx6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqnky"]
+radius = 256.0
+
+[node name="Miner" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_kvdlu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5kvba")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pqnky")
+debug_color = Color(0.282353, 0.501961, 1, 0.0431373)
