@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://brr557s2lfy5s"]
+[gd_scene load_steps=16 format=3 uid="uid://brr557s2lfy5s"]
 
 [ext_resource type="PackedScene" uid="uid://ceys4vrcavapp" path="res://player.tscn" id="1_gtarq"]
 [ext_resource type="Texture2D" uid="uid://0mo6y3vutc8a" path="res://autotile_tileset.png" id="3_6yl3h"]
 [ext_resource type="PackedScene" uid="uid://qi2widkoej4c" path="res://enemy.tscn" id="3_60omp"]
+[ext_resource type="PackedScene" uid="uid://5lcr3pww35f2" path="res://ore.tscn" id="4_sonye"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h6v47"]
 vertices = PackedVector2Array(-16, -32, 32, -32, 32, 32, -16, 32)
@@ -263,3 +264,6 @@ position = Vector2(777, 341)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_60omp")]
 position = Vector2(1044, 691)
+
+[node name="Ore1" parent="." instance=ExtResource("4_sonye")]
+position = Vector2(324, 206)
