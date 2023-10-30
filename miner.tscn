@@ -54,3 +54,18 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pqnky")
 debug_color = Color(0.282353, 0.501961, 1, 0.0431373)
+
+[node name="MiningIntervalTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+autostart = true
+
+[node name="MiningProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_bottom = 27.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+step = 1.0
