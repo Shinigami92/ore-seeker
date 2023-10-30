@@ -21,3 +21,8 @@ texture = ExtResource("2_bga4u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("RectangleShape2D_jut0o")
+
+[node name="ShootIntervalTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
