@@ -57,8 +57,7 @@ autoplay = "default"
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4udxs")
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
+[node name="LifeSpanTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 

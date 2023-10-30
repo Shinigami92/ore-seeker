@@ -2,19 +2,20 @@ class_name Bullet
 extends Area2D
 
 @export var speed: float = 700.0
-@onready var timer: Timer = %Timer
+
+@onready var life_span_timer: Timer = $LifeSpanTimer
 
 
 func _ready():
-	timer.timeout.connect(_on_timer_timeout)
-	timer.start()
+	life_span_timer.timeout.connect(_on_life_span_timer_timeout)
+	life_span_timer.start()
 
 
 func _physics_process(delta):
 	position += transform.x * speed * delta
 
 
-func _on_timer_timeout():
+func _on_life_span_timer_timeout():
 	queue_free()
 
 
