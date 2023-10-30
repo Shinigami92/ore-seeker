@@ -42,7 +42,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqnky"]
 radius = 256.0
 
-[node name="Miner" type="Area2D"]
+[node name="Miner" type="Area2D" groups=["Miner"]]
 collision_layer = 32
 script = ExtResource("1_kvdlu")
 
