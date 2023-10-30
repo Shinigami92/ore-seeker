@@ -10,7 +10,7 @@ radius = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ye4y"]
 radius = 128.0
 
-[node name="Ore" type="StaticBody2D"]
+[node name="Ore" type="StaticBody2D" groups=["Ore"]]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_cqjta")

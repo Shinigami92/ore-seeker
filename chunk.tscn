@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ttlb14uxt8nq"]
+[gd_scene load_steps=14 format=3 uid="uid://c0twdv0q44nlq"]
 
 [ext_resource type="Texture2D" uid="uid://0mo6y3vutc8a" path="res://autotile_tileset.png" id="1_di7gi"]
 [ext_resource type="Script" path="res://chunk.gd" id="2_tnjk3"]

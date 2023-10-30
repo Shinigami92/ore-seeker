@@ -6,7 +6,7 @@ extends CharacterBody2D
 var start_navigating: bool = false
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var player: CharacterBody2D = %Player
+@onready var player: Player = $"../Player"
 
 
 func _ready():
