@@ -29,3 +29,6 @@ position = Vector2(960, 540)
 
 [node name="Ore1" parent="." instance=ExtResource("4_sonye")]
 position = Vector2(324, 206)
+
+[node name="Ore2" parent="." instance=ExtResource("4_sonye")]
+position = Vector2(1527, 1123)
