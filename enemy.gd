@@ -4,9 +4,10 @@ extends CharacterBody2D
 @export var movement_speed: float = 150.0
 
 var start_navigating: bool = false
+var target: Node2D
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var player: Player = $"../Player"
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready():
@@ -26,13 +27,16 @@ func _physics_process(_delta):
 	if not start_navigating:
 		return
 
+	if not target:
+		return
+
 	# target position
 	var current_agent_position: Vector2 = global_position
-	navigation_agent.target_position = player.position
+	navigation_agent.target_position = target.global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 
 	# look at
-	$AnimatedSprite2D.flip_h = global_position.x < player.global_position.x
+	animated_sprite.flip_h = global_position.x < target.global_position.x
 
 	# velocity
 	var new_velocity: Vector2 = next_path_position - current_agent_position
