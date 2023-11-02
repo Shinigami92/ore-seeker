@@ -16,6 +16,7 @@ func _ready():
 
 func _spawn_enemy():
 	var enemy: Enemy = enemy_scene.instantiate()
+	enemy.target = player
 	var side = random.randi_range(0, 3)
 	var vec: Vector2
 	match side:
