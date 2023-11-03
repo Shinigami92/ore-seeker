@@ -21,7 +21,6 @@ func shoot():
 	get_tree().root.add_child(bullet)
 	bullet.global_position = global_position
 	bullet.look_at(get_global_mouse_position())
-	print("Bullet shot!")
 
 	ammo -= 1
 
@@ -34,6 +33,5 @@ func reload():
 		return
 
 	reload_interval_timer.start()
-	print("Reload")
 
 	ammo = max_ammo
