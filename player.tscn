@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceys4vrcavapp"]
+[gd_scene load_steps=5 format=3 uid="uid://ceys4vrcavapp"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_x82fp"]
-[ext_resource type="PackedScene" uid="uid://b86s373vcuf8a" path="res://bullet.tscn" id="2_17bio"]
 [ext_resource type="Texture2D" uid="uid://cu3vmrujgoav1" path="res://icon.svg" id="2_bga4u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_n5mw3"]
@@ -12,7 +11,6 @@ size = Vector2(64, 64)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 86
 script = ExtResource("1_x82fp")
-bullet_scene = ExtResource("2_17bio")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_n5mw3")
@@ -21,8 +19,3 @@ texture = ExtResource("2_bga4u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("RectangleShape2D_jut0o")
-
-[node name="ShootIntervalTimer" type="Timer" parent="."]
-process_callback = 0
-wait_time = 0.2
-one_shot = true

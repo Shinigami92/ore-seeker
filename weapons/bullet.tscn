@@ -1,22 +1,22 @@
 [gd_scene load_steps=9 format=3 uid="uid://b86s373vcuf8a"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_falbk"]
-[ext_resource type="Texture2D" uid="uid://caycuo2yr2nk0" path="res://assets/All_Fire_Bullet_Pixel_16x16_00.png" id="2_lan2k"]
+[ext_resource type="Script" path="res://weapons/bullet.gd" id="1_cj2vh"]
+[ext_resource type="Texture2D" uid="uid://caycuo2yr2nk0" path="res://assets/All_Fire_Bullet_Pixel_16x16_00.png" id="2_86b0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rr40f"]
-atlas = ExtResource("2_lan2k")
+atlas = ExtResource("2_86b0x")
 region = Rect2(256, 128, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2u05"]
-atlas = ExtResource("2_lan2k")
+atlas = ExtResource("2_86b0x")
 region = Rect2(272, 128, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yj7va"]
-atlas = ExtResource("2_lan2k")
+atlas = ExtResource("2_86b0x")
 region = Rect2(288, 128, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvshy"]
-atlas = ExtResource("2_lan2k")
+atlas = ExtResource("2_86b0x")
 region = Rect2(304, 128, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wy01o"]
@@ -47,7 +47,7 @@ height = 16.0
 scale = Vector2(2, 2)
 collision_layer = 8
 collision_mask = 22
-script = ExtResource("1_falbk")
+script = ExtResource("1_cj2vh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wy01o")
