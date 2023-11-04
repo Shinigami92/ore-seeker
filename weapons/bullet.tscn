@@ -57,8 +57,4 @@ autoplay = "default"
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4udxs")
 
-[node name="LifeSpanTimer" type="Timer" parent="."]
-one_shot = true
-autostart = true
-
 [connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]

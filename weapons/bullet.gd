@@ -2,21 +2,17 @@ class_name Bullet
 extends Area2D
 
 @export var speed: float = 700.0
+@export var max_travel_distance: float = 500.0
 
-@onready var life_span_timer: Timer = $LifeSpanTimer
-
-
-func _ready():
-	life_span_timer.timeout.connect(_on_life_span_timer_timeout)
-	life_span_timer.start()
+var _traveled_distance: float = 0.0
 
 
 func _physics_process(delta):
+	_traveled_distance += speed * delta
 	position += transform.x * speed * delta
 
-
-func _on_life_span_timer_timeout():
-	queue_free()
+	if _traveled_distance >= max_travel_distance:
+		queue_free()
 
 
 func _on_area_2d_body_entered(body):
