@@ -22,7 +22,6 @@ func _process(_delta):
 		for dy in [-1, 0, 1]:
 			var chunk_coord = player_chunk + Vector2i(dx, dy)
 			if not _chunks.has(chunk_coord):
-				print("Spawning chunk at ", chunk_coord)
 				var chunk: Chunk = chunk_scene.instantiate()
 				chunk.position = chunk_coord * CHUNK_WIDTH
 				add_child(chunk)
@@ -30,7 +29,6 @@ func _process(_delta):
 
 	for chunk_coord in _chunks:
 		if (chunk_coord - player_chunk).length() >= 3:
-			print("Despawen chunk at ", chunk_coord)
 			var chunk = _chunks.get(chunk_coord)
 			if _chunks.erase(chunk_coord):
 				chunk.queue_free()
