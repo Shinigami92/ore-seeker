@@ -3,15 +3,26 @@ extends Marker2D
 
 @export var player: Player
 @export var world: Node2D
+@export var player_hub: PlayerHub
 @export var enemy_scene: PackedScene
 
 var random = RandomNumberGenerator.new()
 
-@onready var spawn_timer: Timer = $Timer
+@onready var spawn_interval_timer: Timer = $SpawnIntervalTimer
 
 
 func _ready():
-	spawn_timer.timeout.connect(_spawn_enemy)
+	player_hub.player_entered.connect(_on_player_entered_hub)
+	player_hub.player_exited.connect(_on_player_exited_hub)
+	spawn_interval_timer.timeout.connect(_spawn_enemy)
+
+
+func _on_player_entered_hub():
+	spawn_interval_timer.stop()
+
+
+func _on_player_exited_hub():
+	spawn_interval_timer.start()
 
 
 func _spawn_enemy():

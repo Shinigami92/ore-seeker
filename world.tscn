@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://brr557s2lfy5s"]
+[gd_scene load_steps=8 format=3 uid="uid://brr557s2lfy5s"]
 
 [ext_resource type="PackedScene" uid="uid://c0twdv0q44nlq" path="res://chunk.tscn" id="1_8rp0u"]
 [ext_resource type="Script" path="res://outer_world_chunk_gen.gd" id="1_bay65"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qi2widkoej4c" path="res://enemy.tscn" id="3_60omp"]
 [ext_resource type="PackedScene" uid="uid://dquy7u8pg5yad" path="res://enemy_spawner.tscn" id="3_65b4l"]
 [ext_resource type="PackedScene" uid="uid://5lcr3pww35f2" path="res://ore.tscn" id="4_sonye"]
+[ext_resource type="PackedScene" uid="uid://cdn6vrsj310n4" path="res://player_hub.tscn" id="5_1tbbd"]
 
 [node name="World" type="Node2D"]
 
@@ -15,20 +16,22 @@ script = ExtResource("1_bay65")
 chunk_scene = ExtResource("1_8rp0u")
 player = NodePath("../Player")
 
-[node name="EnemySpawner" parent="." node_paths=PackedStringArray("player", "world") instance=ExtResource("3_65b4l")]
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("player", "world", "player_hub") instance=ExtResource("3_65b4l")]
 player = NodePath("../Player")
 world = NodePath("..")
+player_hub = NodePath("../PlayerHub")
 enemy_scene = ExtResource("3_60omp")
 
+[node name="PlayerHub" parent="." instance=ExtResource("5_1tbbd")]
+
 [node name="Player" parent="." instance=ExtResource("1_gtarq")]
-position = Vector2(960, 540)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 
 [node name="Ore1" parent="." instance=ExtResource("4_sonye")]
-position = Vector2(324, 206)
+position = Vector2(1728, -766)
 
 [node name="Ore2" parent="." instance=ExtResource("4_sonye")]
-position = Vector2(1527, 1123)
+position = Vector2(1728, 768)
