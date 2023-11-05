@@ -9,6 +9,12 @@ var is_depleted: bool = false
 var _miner: Miner = null
 var _player_is_near: bool = false
 
+@onready var label: Label = $Label
+
+
+func _ready():
+	label.text = "%d Dirithium" % amount_of_resources
+
 
 func _physics_process(_delta):
 	if _player_is_near and not _miner and Input.is_action_just_pressed("place_miner"):
@@ -25,6 +31,8 @@ func gain_resource(take: int = 1) -> int:
 			is_depleted = true
 			take += amount_of_resources
 			amount_of_resources = 0
+
+		label.text = "%d Dirithium" % amount_of_resources
 
 		return take
 
