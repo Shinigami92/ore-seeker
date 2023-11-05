@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brr557s2lfy5s"]
+[gd_scene load_steps=11 format=3 uid="uid://brr557s2lfy5s"]
 
 [ext_resource type="PackedScene" uid="uid://c0twdv0q44nlq" path="res://chunk.tscn" id="1_8rp0u"]
 [ext_resource type="Script" path="res://outer_world_chunk_gen.gd" id="1_bay65"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dquy7u8pg5yad" path="res://enemy_spawner.tscn" id="3_65b4l"]
 [ext_resource type="PackedScene" uid="uid://5lcr3pww35f2" path="res://ore.tscn" id="4_sonye"]
 [ext_resource type="PackedScene" uid="uid://cdn6vrsj310n4" path="res://player_hub.tscn" id="5_1tbbd"]
+[ext_resource type="Script" path="res://hud.gd" id="7_w5ia0"]
 [ext_resource type="Texture2D" uid="uid://b8pmijetiik7x" path="res://assets/crosshair.png" id="8_u6x2x"]
 [ext_resource type="Script" path="res://crosshair.gd" id="9_0kob6"]
 
@@ -28,7 +29,20 @@ enemy_scene = ExtResource("3_60omp")
 
 [node name="Player" parent="." instance=ExtResource("1_gtarq")]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
+script = ExtResource("7_w5ia0")
+player = NodePath("..")
+
+[node name="PlayerCarriedDirithium" type="Label" parent="Player/Camera2D"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -943.0
+offset_top = 495.0
+offset_right = -790.0
+offset_bottom = 521.0
+grow_vertical = 0
+text = "Carried Dirithium: 0"
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 

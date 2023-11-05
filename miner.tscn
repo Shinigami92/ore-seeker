@@ -64,8 +64,20 @@ autostart = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -80.0
-offset_bottom = 27.0
+offset_left = -60.0
+offset_top = 29.0
+offset_right = 60.0
+offset_bottom = 56.0
 grow_horizontal = 2
-scale = Vector2(2, 2)
-step = 1.0
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.5
+offset_right = 44.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "X Dirithium"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

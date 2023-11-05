@@ -1,9 +1,13 @@
 class_name Player
 extends CharacterBody2D
 
+signal carried_dirithium_changed(new_value: int)
+
 @export var speed: float = 300.0
 
 var weapon: Node2D
+
+var carried_dirithium: int = 0
 
 
 func _ready():

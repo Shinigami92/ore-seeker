@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdn6vrsj310n4"]
+[gd_scene load_steps=8 format=3 uid="uid://cdn6vrsj310n4"]
 
 [ext_resource type="Script" path="res://player_hub.gd" id="1_m6ti2"]
 [ext_resource type="Texture2D" uid="uid://duvwifxjnoik2" path="res://assets/tilesets/tileset_sf.png" id="1_ylgtt"]
+[ext_resource type="Script" path="res://player_ore_delivery_detector.gd" id="3_ucpyw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vfhxy"]
 texture = ExtResource("1_ylgtt")
@@ -373,6 +374,9 @@ sources/0 = SubResource("TileSetAtlasSource_vfhxy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0uts"]
 size = Vector2(64, 256)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcpgd"]
+radius = 160.0
+
 [node name="PlayerHub" type="Node2D"]
 script = ExtResource("1_m6ti2")
 
@@ -390,4 +394,29 @@ position = Vector2(32, 128)
 shape = SubResource("RectangleShape2D_h0uts")
 debug_color = Color(0.454902, 0.596078, 0, 0.129412)
 
+[node name="PlayerOreDeliveryDetector" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("3_ucpyw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOreDeliveryDetector"]
+position = Vector2(-288, -160)
+shape = SubResource("CircleShape2D_tcpgd")
+
+[node name="Label" type="Label" parent="PlayerOreDeliveryDetector"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -331.0
+offset_top = -196.0
+offset_right = -243.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0 Dirithium"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_exited" from="PlayerDoorDetector" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="PlayerOreDeliveryDetector" to="PlayerOreDeliveryDetector" method="_on_body_entered"]
