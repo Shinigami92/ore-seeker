@@ -1,9 +1,11 @@
 class_name Chunk
-extends TileMap
+extends Node2D
+
+@onready var tile_map: TileMap = $TileMap
+@onready var visibility_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 
 func _ready():
-	# set ground
-	for x in 16:
-		for y in 16:
-			set_cell(0, Vector2i(x, y), 0, Vector2i(6, 2), 0)
+	visibility_notifier.screen_entered.connect(tile_map.show)
+	visibility_notifier.screen_exited.connect(tile_map.hide)
+	tile_map.visible = false
