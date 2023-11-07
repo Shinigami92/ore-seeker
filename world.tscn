@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brr557s2lfy5s"]
+[gd_scene load_steps=12 format=3 uid="uid://brr557s2lfy5s"]
 
 [ext_resource type="PackedScene" uid="uid://c0twdv0q44nlq" path="res://chunk.tscn" id="1_8rp0u"]
 [ext_resource type="Script" path="res://outer_world_chunk_gen.gd" id="1_bay65"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://5lcr3pww35f2" path="res://ore.tscn" id="4_sonye"]
 [ext_resource type="PackedScene" uid="uid://cdn6vrsj310n4" path="res://player_hub.tscn" id="5_1tbbd"]
 [ext_resource type="Script" path="res://hud.gd" id="7_w5ia0"]
+[ext_resource type="Script" path="res://fps_counter.gd" id="8_5u5mo"]
 [ext_resource type="Texture2D" uid="uid://b8pmijetiik7x" path="res://assets/crosshair.png" id="8_u6x2x"]
 [ext_resource type="Script" path="res://crosshair.gd" id="9_0kob6"]
 
@@ -32,6 +33,14 @@ enemy_scene = ExtResource("3_60omp")
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 script = ExtResource("7_w5ia0")
 player = NodePath("..")
+
+[node name="FPSCounter" type="Label" parent="Player/Camera2D"]
+offset_left = -943.0
+offset_top = -520.0
+offset_right = -902.0
+offset_bottom = -494.0
+text = "0 FPS"
+script = ExtResource("8_5u5mo")
 
 [node name="PlayerCarriedDirithium" type="Label" parent="Player/Camera2D"]
 anchors_preset = 2
