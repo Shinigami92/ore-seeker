@@ -66,6 +66,10 @@ place_miner={
 2d_physics/layer_6="Miner"
 2d_physics/layer_7="NPC"
 
+[navigation]
+
+2d/default_edge_connection_margin=32
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
