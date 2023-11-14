@@ -5,9 +5,11 @@ extends CharacterBody2D
 
 var start_navigating: bool = false
 var target: Node2D
+var _next_path_position: Vector2
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var update_navigation_path_timer: Timer = $UpdateNavigationPathTimer
 
 
 func _ready():
@@ -18,6 +20,9 @@ func actor_setup():
 	await get_tree().physics_frame
 
 	start_navigating = true
+
+	update_navigation_path_timer.timeout.connect(_update_navigation_path)
+	#navigation_agent.waypoint_reached.connect(_update_navigation_path2)
 
 
 func _process(_delta):
@@ -35,15 +40,26 @@ func _process(_delta):
 
 
 func _physics_process(_delta):
-	if not start_navigating:
-		return
-
-	if not target:
+	if not start_navigating or not target:
 		return
 
 	# target position
 	var current_agent_position: Vector2 = global_position
 	navigation_agent.target_position = target.global_position
+
+	# velocity
+	var new_velocity: Vector2 = _next_path_position - current_agent_position
+	new_velocity = new_velocity.normalized()
+	new_velocity = new_velocity * movement_speed
+
+	velocity = new_velocity
+	move_and_slide()
+
+
+func _update_navigation_path():
+	if not target:
+		return
+
 	# TODO @Shinigami92 2023-11-13: a call to `navigation_agent.get_next_path_position()`
 	# is very expensive and only makes around 60 enemies possible
 	# before calling it, the enemy could shoot a raycast to target and if it hits
@@ -57,19 +73,14 @@ func _physics_process(_delta):
 	query.collision_mask = 0b00000000_00000000_00000000_00010101
 	var result: Dictionary = space_state.intersect_ray(query)
 
-	var next_path_position: Vector2
 	if result.collider == target:
-		next_path_position = navigation_agent.target_position
+		_next_path_position = navigation_agent.target_position
 	else:
-		next_path_position = navigation_agent.get_next_path_position()
+		_next_path_position = navigation_agent.get_next_path_position()
 
-	# velocity
-	var new_velocity: Vector2 = next_path_position - current_agent_position
-	new_velocity = new_velocity.normalized()
-	new_velocity = new_velocity * movement_speed
 
-	velocity = new_velocity
-	move_and_slide()
+#func _update_navigation_path2(_details: Dictionary):
+#	_update_navigation_path()
 
 
 func take_damage():
