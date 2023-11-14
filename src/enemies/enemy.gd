@@ -11,9 +11,6 @@ var target: Node2D
 
 
 func _ready():
-	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = 4.0
-
 	call_deferred("actor_setup")
 
 
