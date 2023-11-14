@@ -53,6 +53,8 @@ func _physics_process(_delta):
 	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(
 		global_position, target.global_position
 	)
+	# Set collision mask to player (1), environment (3) and ores (5)
+	query.collision_mask = 0b00000000_00000000_00000000_00010101
 	var result: Dictionary = space_state.intersect_ray(query)
 
 	var next_path_position: Vector2
