@@ -7,3 +7,4 @@ script = ExtResource("1_fdvvw")
 
 [node name="SpawnIntervalTimer" type="Timer" parent="."]
 process_callback = 0
+wait_time = 0.2

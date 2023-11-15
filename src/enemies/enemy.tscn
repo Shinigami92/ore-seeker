@@ -38,21 +38,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldyd4"]
-size = Vector2(32, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40kw3"]
+radius = 6.5
+height = 33.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 31
 script = ExtResource("1_xs55b")
+movement_speed = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pe6cc")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
-shape = SubResource("RectangleShape2D_ldyd4")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_40kw3")
 debug_color = Color(1, 0.00392157, 0.0745098, 0.0980392)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="StuckTimer" type="Timer" parent="."]
+autostart = true

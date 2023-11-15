@@ -7,7 +7,7 @@ extends Area2D
 var _traveled_distance: float = 0.0
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	_traveled_distance += speed * delta
 	position += transform.x * speed * delta
 
@@ -15,7 +15,7 @@ func _physics_process(delta):
 		queue_free()
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage()
 

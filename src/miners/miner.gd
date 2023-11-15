@@ -9,18 +9,18 @@ var mined_amount: int = 0
 @onready var label: Label = $Label
 
 
-func init(placed_on: Ore):
+func init(placed_on: Ore) -> void:
 	self.placed_on = placed_on
 
 
-func _ready():
+func _ready() -> void:
 	mining_interval_timer.timeout.connect(_on_mining_interval_timer)
 	mining_progress_bar.max_value = mining_interval_timer.wait_time
 
 	_redraw_label()
 
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if placed_on.is_depleted:
 		mining_interval_timer.stop()
 		mining_progress_bar.value = 0
@@ -29,13 +29,13 @@ func _process(_delta):
 		mining_progress_bar.value = mining_interval_timer.time_left
 
 
-func _on_mining_interval_timer():
+func _on_mining_interval_timer() -> void:
 	if not placed_on.is_depleted:
 		mined_amount += placed_on.gain_resource()
 		_redraw_label()
 
 
-func _on_body_entered(body: Node):
+func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.carried_dirithium += mined_amount
 		body.carried_dirithium_changed.emit(body.carried_dirithium)
@@ -43,5 +43,5 @@ func _on_body_entered(body: Node):
 		_redraw_label()
 
 
-func _redraw_label():
+func _redraw_label() -> void:
 	label.text = "%d Dirithium" % mined_amount

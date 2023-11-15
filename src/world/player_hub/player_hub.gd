@@ -6,17 +6,17 @@ signal player_entered
 
 var _x: float
 
-@onready var player_door_detector = $PlayerDoorDetector
+@onready var player_door_detector: Area2D = $PlayerDoorDetector
 
 
-func _ready():
+func _ready() -> void:
 	_x = (
 		player_door_detector.global_position.x
 		+ player_door_detector.get_node("CollisionShape2D").shape.get_rect().size.x / 2
 	)
 
 
-func _on_area_2d_body_exited(body: Node2D):
+func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
 		if body.global_position.x > _x:
 			player_exited.emit()

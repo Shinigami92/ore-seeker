@@ -6,7 +6,7 @@ var stored_dirithium_amount: int = 0
 @onready var label: Label = $Label
 
 
-func _on_body_entered(body: Node):
+func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		stored_dirithium_amount += body.carried_dirithium
 		body.carried_dirithium = 0

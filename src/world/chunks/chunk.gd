@@ -5,7 +5,7 @@ extends Node2D
 @onready var visibility_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 
-func _ready():
+func _ready() -> void:
 	visibility_notifier.screen_entered.connect(tile_map.show)
 	visibility_notifier.screen_exited.connect(tile_map.hide)
 	tile_map.visible = false
