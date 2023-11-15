@@ -11,13 +11,13 @@ var ammo: int = max_ammo
 @onready var reload_interval_timer: Timer = $ReloadIntervalTimer
 
 
-func shoot():
+func shoot() -> void:
 	if ammo < 0 or not reload_interval_timer.is_stopped() or not shoot_interval_timer.is_stopped():
 		return
 
 	shoot_interval_timer.start()
 
-	var bullet = BULLET_SCENE.instantiate()
+	var bullet: Bullet = BULLET_SCENE.instantiate()
 	get_tree().root.add_child(bullet)
 	bullet.global_position = global_position
 	bullet.look_at(get_global_mouse_position())
@@ -28,7 +28,7 @@ func shoot():
 		reload()
 
 
-func reload():
+func reload() -> void:
 	if not reload_interval_timer.is_stopped():
 		return
 

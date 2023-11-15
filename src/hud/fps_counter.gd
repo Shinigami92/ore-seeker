@@ -14,11 +14,11 @@ var current_fps: float = 0
 var max_samples: int = 0
 
 
-func _ready():
+func _ready() -> void:
 	max_samples = Engine.physics_ticks_per_second * sample_seconds
 
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	current_fps = Engine.get_frames_per_second()
 
 	total_fps += current_fps
@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	_update_label()
 
 
-func _update_label():
+func _update_label() -> void:
 	text = (
 		"FPS: %d | Min: %d | Max: %d | Avg: %d"
 		% [current_fps, min_fps, max_fps, int(total_fps / fps_samples.size())]
