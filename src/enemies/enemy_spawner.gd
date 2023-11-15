@@ -44,4 +44,4 @@ func _spawn_enemy():
 		3:
 			vec = Vector2(-960, random.randf_range(-540, 540))
 	enemy.global_position = player.global_position + vec
-	world.add_child(enemy)
+	world.call_deferred("add_child", enemy)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://brr557s2lfy5s"]
+[gd_scene load_steps=11 format=3 uid="uid://brr557s2lfy5s"]
 
-[ext_resource type="Script" path="res://src/world/chunks/outer_world_chunk_gen.gd" id="1_foqy2"]
-[ext_resource type="PackedScene" uid="uid://c0twdv0q44nlq" path="res://src/world/chunks/chunk.tscn" id="2_ki4jy"]
+[ext_resource type="PackedScene" uid="uid://0oong4n83xxw" path="res://src/world/chunks/outer_world_chunk_gen.tscn" id="1_va6hf"]
 [ext_resource type="PackedScene" uid="uid://dquy7u8pg5yad" path="res://src/enemies/enemy_spawner.tscn" id="3_cpcw5"]
 [ext_resource type="PackedScene" uid="uid://qi2widkoej4c" path="res://src/enemies/enemy.tscn" id="4_yny3t"]
 [ext_resource type="PackedScene" uid="uid://cdn6vrsj310n4" path="res://src/world/player_hub/player_hub.tscn" id="5_66ymf"]
@@ -14,10 +13,7 @@
 
 [node name="World" type="Node2D"]
 
-[node name="OuterWorldChunkGen" type="Marker2D" parent="." node_paths=PackedStringArray("player")]
-unique_name_in_owner = true
-script = ExtResource("1_foqy2")
-chunk_scene = ExtResource("2_ki4jy")
+[node name="OuterWorldChunkGen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_va6hf")]
 player = NodePath("../Player")
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("player", "world", "player_hub") instance=ExtResource("3_cpcw5")]

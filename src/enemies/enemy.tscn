@@ -56,7 +56,6 @@ shape = SubResource("RectangleShape2D_ldyd4")
 debug_color = Color(1, 0.00392157, 0.0745098, 0.0980392)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="UpdateNavigationPathTimer" type="Timer" parent="."]
 wait_time = 0.33

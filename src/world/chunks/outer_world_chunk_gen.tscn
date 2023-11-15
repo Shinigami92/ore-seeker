@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://0oong4n83xxw"]
+
+[ext_resource type="Script" path="res://src/world/chunks/outer_world_chunk_gen.gd" id="1_1ngbh"]
+
+[node name="OuterWorldChunkGen" type="Marker2D"]
+script = ExtResource("1_1ngbh")
+
+[node name="ChunkGenerationTimer" type="Timer" parent="."]
+wait_time = 0.125
+autostart = true
