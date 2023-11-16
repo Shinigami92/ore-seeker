@@ -1,11 +1,16 @@
 class_name Enemy
 extends CharacterBody2D
 
+const MAX_HEALTH: int = 12
+
 @export var movement_speed: float = 150.0
 
 var target: Node2D = null
+
 var last_position: Vector2
 var stuck_counter: int = 0
+
+var health: int = MAX_HEALTH
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var stuck_timer: Timer = $StuckTimer
@@ -43,12 +48,29 @@ func _on_stuck_timer_timeout() -> void:
 		stuck_counter += 1
 
 		if stuck_counter >= 3:
-			take_damage()
+			take_damage(MAX_HEALTH)
 	else:
 		stuck_counter = 0
 
 	last_position = global_position
 
 
-func take_damage() -> void:
-	queue_free()
+func take_damage(damage: int) -> void:
+	# Create a damage indicator
+	var damage_indicator: DamageIndicator = (
+		preload("res://src/effects/damage_indicator/damage_indicator.tscn").instantiate()
+	)
+	get_tree().root.add_child(damage_indicator)
+	damage_indicator.global_position = global_position
+	damage_indicator.label.text = str(damage)
+
+	# Color the damage indicator as critical if the enemy is about to die
+	if damage >= health:
+		damage_indicator.label.modulate = Color.YELLOW
+
+	# Reduce the enemy's health
+	health -= damage
+
+	if health <= 0:
+		# Remove the enemy from the scene tree
+		queue_free()
