@@ -1,8 +1,6 @@
 class_name Revolver
 extends Node2D
 
-const BULLET_SCENE: PackedScene = preload("res://src/weapons/bullet.tscn")
-
 @export var max_ammo: int = 6
 
 var ammo: int = max_ammo
@@ -17,9 +15,9 @@ func shoot() -> void:
 
 	shoot_interval_timer.start()
 
-	var bullet: Bullet = BULLET_SCENE.instantiate()
-	get_tree().root.add_child(bullet)
+	var bullet: Bullet = Bullet.instantiate()
 	bullet.global_position = global_position
+	get_tree().root.add_child(bullet)
 	bullet.look_at(get_global_mouse_position())
 
 	ammo -= 1
