@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qi2widkoej4c"]
+[gd_scene load_steps=11 format=3 uid="uid://dayvbnh6w4tjo"]
 
 [ext_resource type="Script" path="res://src/enemies/enemy.gd" id="1_xs55b"]
 [ext_resource type="Texture2D" uid="uid://blkja33k15417" path="res://assets/sprites/enemies/Eye Fire Red/eye fire1.png" id="2_dr18l"]
