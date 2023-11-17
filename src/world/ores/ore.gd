@@ -1,9 +1,9 @@
 class_name Ore
 extends StaticBody2D
 
-const MINER_SCENE: PackedScene = preload("res://src/miners/miner.tscn")
-
 @export var amount_of_resources: int = 100
+
+@export var player_hub: PlayerHub = null
 
 var is_depleted: bool = false
 
@@ -19,9 +19,9 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if _player_is_near and not _miner and Input.is_action_just_pressed("place_miner"):
-		_miner = MINER_SCENE.instantiate()
-		_miner.init(self)
+		_miner = Miner.instantiate(self, player_hub)
 		add_child(_miner)
+		_miner.tree_exiting.connect(_on_miner_tree_exiting)
 
 
 func gain_resource(take: int = 1) -> int:
@@ -46,3 +46,7 @@ func _on_player_nearby_detector_body_entered(_body: Node2D) -> void:
 
 func _on_player_nearby_detector_body_exited(_body: Node2D) -> void:
 	_player_is_near = false
+
+
+func _on_miner_tree_exiting() -> void:
+	_miner = null

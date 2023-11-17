@@ -1,8 +1,6 @@
 class_name EnemySpawner
 extends Marker2D
 
-const ENEMY_SCENE: PackedScene = preload("res://src/enemies/enemy.tscn")
-
 @export var player: Player
 @export var world: Node2D
 @export var player_hub: PlayerHub
@@ -27,7 +25,7 @@ func _on_player_exited_hub() -> void:
 
 
 func _spawn_enemy() -> void:
-	var enemy: Enemy = ENEMY_SCENE.instantiate()
+	var enemy: Enemy = Enemy.instantiate(player_hub)
 	enemy.target = player
 	var side: int = random.randi_range(0, 3)
 	var vec: Vector2
