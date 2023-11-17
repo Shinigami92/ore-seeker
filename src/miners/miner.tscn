@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://co87fcy7nhm03"]
+[gd_scene load_steps=9 format=3 uid="uid://c3jhruyidfyc1"]
 
 [ext_resource type="Script" path="res://src/miners/miner.gd" id="1_kvdlu"]
 [ext_resource type="Texture2D" uid="uid://njtf4kfmkots" path="res://assets/sprites/bullets/All_Fire_Bullet_Pixel_16x16_03.png" id="2_0ifrm"]

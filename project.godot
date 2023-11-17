@@ -74,4 +74,4 @@ place_miner={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.0470588, 0.0470588, 0.0470588, 1)
+environment/defaults/default_clear_color=Color(0.148989, 0.364431, 0.462623, 1)
