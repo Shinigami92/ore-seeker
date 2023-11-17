@@ -8,6 +8,11 @@ extends Area2D
 var _traveled_distance: float = 0.0
 
 
+static func instantiate() -> Bullet:
+	var bullet: Bullet = preload("res://src/weapons/bullet.tscn").instantiate()
+	return bullet
+
+
 func _physics_process(delta: float) -> void:
 	_traveled_distance += speed * delta
 	position += transform.x * speed * delta
