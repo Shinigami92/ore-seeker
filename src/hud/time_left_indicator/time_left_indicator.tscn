@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwue1dus7j2uf"]
+
+[ext_resource type="Script" path="res://src/hud/time_left_indicator/time_left_indicator.gd" id="1_51mvd"]
+
+[node name="TimeLeftIndicator" type="Label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -981.0
+offset_right = -940.0
+offset_bottom = 26.0
+grow_horizontal = 2
+pivot_offset = Vector2(21, 0)
+text = "00:00"
+script = ExtResource("1_51mvd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
