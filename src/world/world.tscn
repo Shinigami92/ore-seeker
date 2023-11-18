@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brr557s2lfy5s"]
+[gd_scene load_steps=10 format=3 uid="uid://brr557s2lfy5s"]
 
 [ext_resource type="Script" path="res://src/world/chunks/outer_world_chunk_gen.gd" id="1_foqy2"]
 [ext_resource type="PackedScene" uid="uid://dquy7u8pg5yad" path="res://src/enemies/enemy_spawner.tscn" id="3_cpcw5"]
@@ -7,15 +7,15 @@
 [ext_resource type="Script" path="res://src/hud/hud.gd" id="7_1w8fk"]
 [ext_resource type="PackedScene" uid="uid://dwue1dus7j2uf" path="res://src/hud/time_left_indicator/time_left_indicator.tscn" id="7_r6xcy"]
 [ext_resource type="Script" path="res://src/hud/fps_counter.gd" id="8_4g3h1"]
-[ext_resource type="PackedScene" uid="uid://5lcr3pww35f2" path="res://src/world/ores/ore.tscn" id="9_xdsxp"]
 [ext_resource type="Texture2D" uid="uid://b8pmijetiik7x" path="res://assets/sprites/hud/crosshair.png" id="10_1exb6"]
 [ext_resource type="Script" path="res://src/hud/crosshair.gd" id="11_akep3"]
 
 [node name="World" type="Node2D"]
 
-[node name="OuterWorldChunkGen" type="Marker2D" parent="." node_paths=PackedStringArray("player")]
+[node name="OuterWorldChunkGen" type="Marker2D" parent="." node_paths=PackedStringArray("player", "player_hub")]
 script = ExtResource("1_foqy2")
 player = NodePath("../Player")
+player_hub = NodePath("../PlayerHub")
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("player", "world", "player_hub") instance=ExtResource("3_cpcw5")]
 player = NodePath("../Player")
@@ -58,18 +58,12 @@ text = "Carried Dirithium: 0"
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 
-[node name="Ore1" parent="." node_paths=PackedStringArray("player_hub") instance=ExtResource("9_xdsxp")]
-position = Vector2(1728, -766)
-player_hub = NodePath("../PlayerHub")
-
-[node name="Ore2" parent="." node_paths=PackedStringArray("player_hub") instance=ExtResource("9_xdsxp")]
-position = Vector2(1728, 768)
-player_hub = NodePath("../PlayerHub")
-
 [node name="Crosshair" type="Sprite2D" parent="."]
 texture = ExtResource("10_1exb6")
 script = ExtResource("11_akep3")
 
+[connection signal="player_entered" from="PlayerHub" to="OuterWorldChunkGen" method="_on_player_hub_player_entered"]
 [connection signal="player_entered" from="PlayerHub" to="Player/Camera2D/TimeLeftIndicator" method="_on_player_hub_player_entered"]
+[connection signal="player_exited" from="PlayerHub" to="OuterWorldChunkGen" method="_on_player_hub_player_exited"]
 [connection signal="player_exited" from="PlayerHub" to="Player/Camera2D/TimeLeftIndicator" method="_on_player_hub_player_exited"]
 [connection signal="died" from="Player" to="PlayerHub" method="_on_player_died"]
