@@ -5,6 +5,10 @@ const MAX_HEALTH: int = 12
 
 @export var movement_speed: float = 150.0
 
+# The amount of damage the enemy will deal to the player
+# This could be higher for enemies that are more dangerous
+@export var damage: int = 1
+
 var target: Node2D = null
 
 var last_position: Vector2
@@ -70,6 +74,10 @@ func _on_player_hub_player_entered() -> void:
 	queue_free()
 
 
+# TODO christopher 2023-11-18: Either define another method that kills
+# the enemy immediately due to game mechanics like player hitted or got stuck
+# or redefine the argument(s) of this method to be more generic
+# Latter might be better, allowing a DamageInfo object to be passed
 func take_damage(damage: int) -> void:
 	# Create a damage indicator
 	var damage_indicator: DamageIndicator = (

@@ -72,3 +72,4 @@ script = ExtResource("11_akep3")
 
 [connection signal="player_entered" from="PlayerHub" to="Player/Camera2D/TimeLeftIndicator" method="_on_player_hub_player_entered"]
 [connection signal="player_exited" from="PlayerHub" to="Player/Camera2D/TimeLeftIndicator" method="_on_player_hub_player_exited"]
+[connection signal="died" from="Player" to="PlayerHub" method="_on_player_died"]
