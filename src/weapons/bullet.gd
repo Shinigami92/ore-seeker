@@ -9,7 +9,7 @@ var _traveled_distance: float = 0.0
 
 
 static func instantiate() -> Bullet:
-	var bullet: Bullet = preload("res://src/weapons/bullet.tscn").instantiate()
+	var bullet: Bullet = preload("bullet.tscn").instantiate()
 	return bullet
 
 

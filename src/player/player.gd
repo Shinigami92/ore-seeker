@@ -11,6 +11,7 @@ var health: int = max_health
 
 var weapon: Node2D = null
 
+# TODO christopher 2023-11-18: Use setter/getter abd carried_dirithium_changed signal
 var carried_dirithium: int = 0
 
 

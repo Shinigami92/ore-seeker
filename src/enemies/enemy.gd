@@ -23,7 +23,7 @@ var _player_hub: PlayerHub
 
 
 static func instantiate(player_hub: PlayerHub) -> Enemy:
-	var enemy: Enemy = preload("res://src/enemies/enemy.tscn").instantiate()
+	var enemy: Enemy = preload("enemy.tscn").instantiate()
 	enemy._player_hub = player_hub
 	return enemy
 

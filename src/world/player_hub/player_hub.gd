@@ -30,4 +30,7 @@ func _on_player_died(player: Player) -> void:
 
 	player.health = player.max_health
 
+	player.carried_dirithium = 0
+	player.carried_dirithium_changed.emit(player.carried_dirithium)
+
 	player_entered.emit()

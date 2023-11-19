@@ -9,20 +9,14 @@ var _chunks: Dictionary = {}
 var _noise: FastNoiseLite = FastNoiseLite.new()
 
 
-func _ready() -> void:
-	_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
-	_noise.fractal_octaves = 4
-	_noise.frequency = 1.0 / 20.0
-
-
 func _process(_delta: float) -> void:
 	if not _generation_active:
 		return
 
 	var player_chunk: Vector2i = Vector2i(floor(player.global_position / Chunk.CHUNK_WIDTH))
 
-	for dx in [-1, 0, 1]:
-		for dy in [-1, 0, 1]:
+	for dx in range(-5, 6):
+		for dy in range(-5, 6):
 			var chunk_coordinates: Vector2i = player_chunk + Vector2i(dx, dy)
 
 			if not _chunks.has(chunk_coordinates):
