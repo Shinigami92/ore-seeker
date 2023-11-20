@@ -55,3 +55,10 @@ func take_hit(body: Node2D) -> void:
 
 	if health <= 0:
 		died.emit(self)
+
+
+func _on_time_left_indicator_time_left_ended() -> void:
+	# Insta-kill player, if time runs out
+	# TODO @Shinigami92 2023-11-20: This will trigger something like a sandstorm
+	# or similar later on
+	died.emit(self)
