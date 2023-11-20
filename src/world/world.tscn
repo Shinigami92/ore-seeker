@@ -50,11 +50,18 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = -943.0
-offset_top = 495.0
+offset_top = 461.0
 offset_right = -790.0
-offset_bottom = 521.0
+offset_bottom = 487.0
 grow_vertical = 0
 text = "Carried Dirithium: 0"
+
+[node name="PlayerCoordinates" type="Label" parent="Player/Camera2D"]
+offset_left = -943.0
+offset_top = 491.0
+offset_right = -881.0
+offset_bottom = 517.0
+text = "(x, y)"
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 
