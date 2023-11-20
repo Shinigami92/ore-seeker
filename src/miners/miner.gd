@@ -12,7 +12,7 @@ var _mined_amount: int = 0
 
 
 static func instantiate(placed_on: Ore, player_hub: PlayerHub) -> Miner:
-	var miner: Miner = preload("res://src/miners/miner.tscn").instantiate()
+	var miner: Miner = preload("miner.tscn").instantiate()
 	miner._placed_on = placed_on
 	miner._player_hub = player_hub
 	return miner
