@@ -22,7 +22,6 @@ offset_right = 640.0
 offset_bottom = 64.0
 
 [node name="EmptyHeart1" type="TextureRect" parent="Background"]
-texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -30,7 +29,6 @@ size_flags_vertical = 4
 texture = SubResource("AtlasTexture_oym4d")
 
 [node name="EmptyHeart2" type="TextureRect" parent="Background"]
-texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -38,7 +36,6 @@ size_flags_vertical = 4
 texture = SubResource("AtlasTexture_oym4d")
 
 [node name="EmptyHeart3" type="TextureRect" parent="Background"]
-texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -51,7 +48,6 @@ offset_right = 640.0
 offset_bottom = 64.0
 
 [node name="Heart1" type="TextureRect" parent="Forground"]
-texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -59,7 +55,6 @@ size_flags_vertical = 4
 texture = SubResource("AtlasTexture_krw8o")
 
 [node name="Heart2" type="TextureRect" parent="Forground"]
-texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -67,7 +62,6 @@ size_flags_vertical = 4
 texture = SubResource("AtlasTexture_krw8o")
 
 [node name="Heart3" type="TextureRect" parent="Forground"]
-texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0

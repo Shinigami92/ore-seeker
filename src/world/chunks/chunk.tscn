@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0twdv0q44nlq"]
+[gd_scene load_steps=7 format=3 uid="uid://b2thsyhfhk2rv"]
 
 [ext_resource type="Script" path="res://src/world/chunks/chunk.gd" id="1_0faai"]
 [ext_resource type="Texture2D" uid="uid://dvcqwj4ugpv8w" path="res://assets/tilesets/tileset_PixelArtForestBase.png" id="2_urhng"]
@@ -486,7 +486,6 @@ sources/1 = SubResource("TileSetAtlasSource_64doj")
 script = ExtResource("1_0faai")
 
 [node name="TileMap" type="TileMap" parent="."]
-texture_filter = 1
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_ujbwi")
 format = 2
