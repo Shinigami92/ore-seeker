@@ -2,12 +2,19 @@ class_name Player
 extends CharacterBody2D
 
 signal carried_dirithium_changed(new_value: int)
+signal health_changed(player: Player, old_value: int, new_value: int)
 signal died(player: Player)
 
 @export var max_health: int = 3
 @export var movement_speed: float = 300.0
 
-var health: int = max_health
+var health: int = max_health:
+	set(value):
+		var old_value: int = health
+		health_changed.emit(self, old_value, value)
+		health = value
+	get:
+		return health
 
 var weapon: Node2D = null
 
