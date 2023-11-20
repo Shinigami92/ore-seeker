@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwular2yhrady"]
+
+[ext_resource type="Script" path="res://src/hud/player_health/player_health.gd" id="1_2pkwh"]
+[ext_resource type="Texture2D" uid="uid://c51rd51v3qqe7" path="res://assets/sprites/hud/heart_and_mana.png" id="1_tj0ri"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oym4d"]
+atlas = ExtResource("1_tj0ri")
+region = Rect2(33, 13, 10, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krw8o"]
+atlas = ExtResource("1_tj0ri")
+region = Rect2(21, 13, 10, 9)
+
+[node name="PlayerHealth" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2pkwh")
+
+[node name="Background" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 64.0
+
+[node name="EmptyHeart1" type="TextureRect" parent="Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_oym4d")
+
+[node name="EmptyHeart2" type="TextureRect" parent="Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_oym4d")
+
+[node name="EmptyHeart3" type="TextureRect" parent="Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_oym4d")
+
+[node name="Forground" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 64.0
+
+[node name="Heart1" type="TextureRect" parent="Forground"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_krw8o")
+
+[node name="Heart2" type="TextureRect" parent="Forground"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_krw8o")
+
+[node name="Heart3" type="TextureRect" parent="Forground"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_krw8o")

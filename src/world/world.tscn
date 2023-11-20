@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brr557s2lfy5s"]
+[gd_scene load_steps=11 format=3 uid="uid://brr557s2lfy5s"]
 
 [ext_resource type="Script" path="res://src/world/chunks/outer_world_chunk_gen.gd" id="1_foqy2"]
 [ext_resource type="PackedScene" uid="uid://dquy7u8pg5yad" path="res://src/enemies/enemy_spawner.tscn" id="3_cpcw5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/hud/hud.gd" id="7_1w8fk"]
 [ext_resource type="PackedScene" uid="uid://dwue1dus7j2uf" path="res://src/hud/time_left_indicator/time_left_indicator.tscn" id="7_r6xcy"]
 [ext_resource type="Script" path="res://src/hud/fps_counter.gd" id="8_4g3h1"]
+[ext_resource type="PackedScene" uid="uid://cwular2yhrady" path="res://src/hud/player_health/player_health.tscn" id="8_2633t"]
 [ext_resource type="Texture2D" uid="uid://b8pmijetiik7x" path="res://assets/sprites/hud/crosshair.png" id="10_1exb6"]
 [ext_resource type="Script" path="res://src/hud/crosshair.gd" id="11_akep3"]
 
@@ -32,9 +33,9 @@ player = NodePath("..")
 
 [node name="FPSCounter" type="Label" parent="Player/Camera2D"]
 offset_left = -943.0
-offset_top = -520.0
+offset_top = -449.0
 offset_right = -902.0
-offset_bottom = -494.0
+offset_bottom = -423.0
 text = "0 FPS"
 script = ExtResource("8_4g3h1")
 
@@ -63,6 +64,12 @@ offset_right = -881.0
 offset_bottom = 517.0
 text = "(x, y)"
 
+[node name="PlayerHealth" parent="Player/Camera2D" instance=ExtResource("8_2633t")]
+offset_left = -943.0
+offset_top = -521.0
+offset_right = -943.0
+offset_bottom = -521.0
+
 [node name="Marker2D" type="Marker2D" parent="Player"]
 
 [node name="Crosshair" type="Sprite2D" parent="."]
@@ -74,4 +81,5 @@ script = ExtResource("11_akep3")
 [connection signal="player_exited" from="PlayerHub" to="OuterWorldChunkGen" method="_on_player_hub_player_exited"]
 [connection signal="player_exited" from="PlayerHub" to="Player/Camera2D/TimeLeftIndicator" method="_on_player_hub_player_exited"]
 [connection signal="died" from="Player" to="PlayerHub" method="_on_player_died"]
+[connection signal="health_changed" from="Player" to="Player/Camera2D/PlayerHealth" method="_on_player_health_changed"]
 [connection signal="time_left_ended" from="Player/Camera2D/TimeLeftIndicator" to="Player" method="_on_time_left_indicator_time_left_ended"]
