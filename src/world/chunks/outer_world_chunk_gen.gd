@@ -37,7 +37,7 @@ func _on_player_hub_player_exited() -> void:
 func _on_player_hub_player_entered() -> void:
 	_generation_active = false
 
-	for chunk in _chunks.values():
+	for chunk: Chunk in _chunks.values():
 		chunk.queue_free()
 
 	_chunks.clear()
